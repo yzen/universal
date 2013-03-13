@@ -46,13 +46,24 @@ https://github.com/gpii/universal/LICENSE.txt
             templateSource: {
                 type: "gpii.callbackWrappingDataSource"
             },
-            "static": {
+            staticInfusion: {
                 type: "gpii.middleware",
-                createOnEvent: "onMiddleware"
+                createOnEvent: "onMiddleware",
+                options: {
+                    staticPath: "%root/../node_modules/infusion",
+                    path: "/infusion"
+                }
+            },
+            staticSrc: {
+                type: "gpii.middleware",
+                createOnEvent: "onMiddleware",
+                options: {
+                    staticPath: "%root/renderer/src",
+                    path: "/src"
+                }
             }
         },
-        root: path.join(__dirname, ".."),
-        "static": "%root/../node_modules/infusion/src/webapp"
+        root: path.join(__dirname, "..")
     });
 
     fluid.defaults("gpii.rendererServer.handler", {
@@ -69,6 +80,13 @@ https://github.com/gpii/universal/LICENSE.txt
                 args: ["{requestProxy}", "{that}", "{rendererServer}.templateSource"]
             }
         }
+    });
+
+    fluid.defaults("gpii.middleware.staticInfusion", {
+        gradeNames: ["autoInit", "gpii.middleware.static"]
+    });
+    fluid.defaults("gpii.middleware.staticSrc", {
+        gradeNames: ["autoInit", "gpii.middleware.static"]
     });
 
     gpii.config.makeConfigLoader({

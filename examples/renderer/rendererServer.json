@@ -52,10 +52,16 @@
             "args": "{arguments}.0"
         }
     }, {
-        "demandingName": "static",
+        "demandingName": "staticInfusion",
         "contextNames": "gpii.app",
         "demandSpec": {
-            "funcName": "gpii.middleware.static"
+            "funcName": "gpii.middleware.staticInfusion"
+        }
+    }, {
+        "demandingName": "staticSrc",
+        "contextNames": "gpii.app",
+        "demandSpec": {
+            "funcName": "gpii.middleware.staticSrc"
         }
     }]
 }
