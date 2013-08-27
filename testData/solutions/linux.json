@@ -25,8 +25,8 @@
                     "mag-factor": "display.screenEnhancement.magnification",
                     "show-cross-hairs": "display.screenEnhancement.-provisional-showCrosshairs",
                     "mouse-tracking": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.screenEnhancement.tracking",
                             "options": {
                                 "mouse": {
@@ -36,8 +36,8 @@
                         }
                     },
                     "screen-position": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.screenEnhancement.-provisional-magnifierPosition",
                             "defaultInputValue": "Custom",
                             "options": {
@@ -146,18 +146,18 @@
                 ],
                 "capabilitiesTransformations": {
                     "text-scaling-factor": {
-                        "expander": {
+                        "transform": {
                             "type": "gpii.transformer.fontSizeToScale",
                             "inputPath": "display.screenEnhancement.fontSize",
                             "baseFontSize": 12
                         }
                     },
                     "cursor-size": {
-                        "expander": {
-                            "type": "fluid.model.transform.condition",
+                        "transform": {
+                            "type": "fluid.transforms.condition",
                             "condition": {
-                                "expander": {
-                                    "type": "fluid.model.transform.binaryOp",
+                                "transform": {
+                                    "type": "fluid.transforms.binaryOp",
                                     "leftPath": "display.screenEnhancement.cursorSize",
                                     "operator": ">",
                                     "right": 0.666
@@ -165,11 +165,11 @@
                             },
                             "true": 41,
                             "false": {
-                                "expander": {
-                                    "type": "fluid.model.transform.condition",
+                                "transform": {
+                                    "type": "fluid.transforms.condition",
                                     "condition": {
-                                        "expander": {
-                                            "type": "fluid.model.transform.binaryOp",
+                                        "transform": {
+                                            "type": "fluid.transforms.binaryOp",
                                             "leftPath": "display.screenEnhancement.cursorSize",
                                             "operator": ">",
                                             "right": 0.333
@@ -177,11 +177,11 @@
                                     },
                                     "true": 29,
                                     "false": {
-                                        "expander": {
-                                            "type": "fluid.model.transform.condition",
+                                        "transform": {
+                                            "type": "fluid.transforms.condition",
                                             "condition": {
-                                                "expander": {
-                                                    "type": "fluid.model.transform.binaryOp",
+                                                "transform": {
+                                                    "type": "fluid.transforms.binaryOp",
                                                     "leftPath": "display.screenEnhancement.cursorSize",
                                                     "operator": ">",
                                                     "right": 0
@@ -196,8 +196,8 @@
                         }
                     },
                     "gtk-theme": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.screenEnhancement.highContrast",
                             "options": {
                                 "true": {
@@ -207,8 +207,8 @@
                         }
                     },
                     "icon-theme": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.screenEnhancement.highContrast",
                             "options": {
                                 "true": {
@@ -316,39 +316,39 @@
                     "stickykeys-enable": "control.keyboardEnhancement.stickyKeys",
                     "slowkeys-enable": "control.keyboardEnhancement.slowKeys.-provisional-slowKeysEnable",
                     "slowkeys-delay": {
-                        "expander": {
-                            "type": "fluid.model.transform.scaleValue",
-                            "inputPath": "control.keyboardEnhancement.slowKeys.slowKeysInterval",
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "valuePath": "control.keyboardEnhancement.slowKeys.slowKeysInterval",
                             "factor": 1000
                         }
                     },
                     "bouncekeys-enable": "control.keyboardEnhancement.debounceKeys.-provisional-debounceEnable",
                     "bouncekeys-delay": {
-                        "expander": {
-                            "type": "fluid.model.transform.scaleValue",
-                            "inputPath": "control.keyboardEnhancement.debounceKeys.debounceInterval",
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "valuePath": "control.keyboardEnhancement.debounceKeys.debounceInterval",
                             "factor": 1000
                         }
                     },
                     "mousekeys-enable": "control.mouseEmulation.-provisional-mouseEmulationEnabled",
                     "mousekeys-init-delay": {
-                        "expander": {
-                            "type": "fluid.model.transform.scaleValue",
-                            "inputPath": "control.mouseEmulation.-provisional-initDelay",
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "valuePath": "control.mouseEmulation.-provisional-initDelay",
                             "factor": 1000
                         }
                     },
                     "mousekeys-max-speed": {
-                        "expander": {
-                            "type": "fluid.model.transform.scaleValue",
-                            "inputPath": "control.mouseEmulation.cursorSpeed",
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "valuePath": "control.mouseEmulation.cursorSpeed",
                             "factor": 1000
                         }
                     },
                     "mousekeys-accel-time": {
-                        "expander": {
-                            "type": "fluid.model.transform.scaleValue",
-                            "inputPath": "control.mouseEmulation.cursorAcceleration",
+                        "transform": {
+                            "type": "fluid.transforms.linearScale",
+                            "valuePath": "control.mouseEmulation.cursorAcceleration",
                             "factor": 1000
                         }
                     }
@@ -391,8 +391,8 @@
                     "enableBraille": "display.screenReader.-provisional-screenReaderBrailleOutput",
                     "enableSpeech": "display.screenReader.-provisional-screenReaderTTSEnabled",
                     "sayAllStyle": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.textReadingHighlight.readingUnit",
                             "defaultInputValue": "sentence",
                             "options": {
@@ -406,28 +406,28 @@
                         }
                     },
                     "voices\\.default\\.rate": {
-                        "expander": {
-                            "type": "fluid.model.transform.binaryOp",
+                        "transform": {
+                            "type": "fluid.transforms.binaryOp",
                             "right": 50,
                             "operator": "+",
                             "left": {
-                                "expander": {
-                                    "type": "fluid.model.transform.binaryOp",
+                                "transform": {
+                                    "type": "fluid.transforms.binaryOp",
                                     "operator": "/",
                                     "left": {
-                                        "expander": {
-                                            "type": "fluid.model.transform.binaryOp",
+                                        "transform": {
+                                            "type": "fluid.transforms.binaryOp",
                                             "leftPath": "display.screenReader.speechRate",
                                             "operator": "-",
                                             "right": 170
                                         }
                                     },
                                     "right": {
-                                        "expander": {
-                                            "type": "fluid.model.transform.condition",
+                                        "transform": {
+                                            "type": "fluid.transforms.condition",
                                             "condition": {
-                                                "expander" : {
-                                                    "type": "fluid.model.transform.binaryOp",
+                                                "transform" : {
+                                                    "type": "fluid.transforms.binaryOp",
                                                     "leftPath": "display.screenReader.speechRate",
                                                     "operator": "<",
                                                     "right": 170
@@ -442,15 +442,15 @@
                         }
                     },
                     "voices\\.default\\.family": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.screenReader.-provisional-auditoryOutLanguage",
                             "defaultInputValue": "en",
                             "options": {
                                 "en": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "english"
@@ -460,8 +460,8 @@
                                 },
                                 "en-GB": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "english"
@@ -471,8 +471,8 @@
                                 },
                                 "en-US": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "english-us"
@@ -482,8 +482,8 @@
                                 },
                                 "en-scotland": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "en-scottish"
@@ -493,8 +493,8 @@
                                 },
                                 "en-BZ": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "en-westindies"
@@ -504,8 +504,8 @@
                                 },
                                 "en-BS": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "en-westindies"
@@ -515,8 +515,8 @@
                                 },
                                 "en-AG": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "en-westindies"
@@ -526,8 +526,8 @@
                                 },
                                 "en-AI": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "en",
                                                 "name": "en-westindies"
@@ -537,8 +537,8 @@
                                 },
                                 "af": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "af",
                                                 "name": "afrikaans"
@@ -548,8 +548,8 @@
                                 },
                                 "bg": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "bg",
                                                 "name": "bulgarian-test"
@@ -559,8 +559,8 @@
                                 },
                                 "bs": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "bs",
                                                 "name": "bosnian"
@@ -570,8 +570,8 @@
                                 },
                                 "ca": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ca",
                                                 "name": "catalan"
@@ -581,8 +581,8 @@
                                 },
                                 "cs": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "cs",
                                                 "name": "czech"
@@ -592,8 +592,8 @@
                                 },
                                 "cy": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "cy",
                                                 "name": "welsh-test"
@@ -603,8 +603,8 @@
                                 },
                                 "da": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "da",
                                                 "name": "danish"
@@ -614,8 +614,8 @@
                                 },
                                 "de": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "de",
                                                 "name": "german"
@@ -625,8 +625,8 @@
                                 },
                                 "el": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "el",
                                                 "name": "greek"
@@ -636,8 +636,8 @@
                                 },
                                 "grc": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "grc",
                                                 "name": "greek-ancient"
@@ -647,8 +647,8 @@
                                 },
                                 "eo": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "eo",
                                                 "name": "esperanto"
@@ -658,8 +658,8 @@
                                 },
                                 "es": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "es",
                                                 "name": "spanish"
@@ -669,8 +669,8 @@
                                 },
                                 "es-419": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "es",
                                                 "name": "spanish-latin-american"
@@ -680,8 +680,8 @@
                                 },
                                 "et": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                  "locale": "et",
                                                  "name": "estonian"
@@ -691,8 +691,8 @@
                                 },
                                 "fi": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "fi",
                                                 "name": "finnish"
@@ -702,8 +702,8 @@
                                 },
                                 "fr": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "fr",
                                                 "name": "french"
@@ -713,8 +713,8 @@
                                 },
                                 "fr-BE": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "(Belgium)",
                                                 "name": "french"
@@ -724,8 +724,8 @@
                                 },
                                 "hi": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "hi",
                                                 "name": "hindi"
@@ -735,8 +735,8 @@
                                 },
                                 "hr": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "hr",
                                                 "name": "croatian"
@@ -746,8 +746,8 @@
                                 },
                                 "hu": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "hu",
                                                 "name": "hungarian"
@@ -757,8 +757,8 @@
                                 },
                                 "hy": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "hy",
                                                 "name": "armenian"
@@ -768,8 +768,8 @@
                                 },
                                 "hy-arevmda": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "hy",
                                                 "name": "armenian-west"
@@ -779,8 +779,8 @@
                                 },
                                 "id": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "id",
                                                 "name": "indonesian-test"
@@ -790,8 +790,8 @@
                                 },
                                 "is": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "is",
                                                 "name": "icelandic-test"
@@ -801,8 +801,8 @@
                                 },
                                 "it": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "it",
                                                 "name": "italian"
@@ -812,8 +812,8 @@
                                 },
                                 "jbo": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "jbo",
                                                 "name": "lojban"
@@ -823,8 +823,8 @@
                                 },
                                 "ka": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ka",
                                                 "name": "georgian-test"
@@ -834,8 +834,8 @@
                                 },
                                 "kn": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "kn",
                                                 "name": "kannada"
@@ -845,8 +845,8 @@
                                 },
                                 "ku": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ku",
                                                 "name": "kurdish"
@@ -856,8 +856,8 @@
                                 },
                                 "la": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "la",
                                                 "name": "latin"
@@ -867,8 +867,8 @@
                                 },
                                 "lv": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "lv",
                                                 "name": "latvian"
@@ -878,8 +878,8 @@
                                 },
                                 "mk": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "mk",
                                                 "name": "macedonian-test"
@@ -889,8 +889,8 @@
                                 },
                                 "ml": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ml",
                                                 "name": "malayalam"
@@ -900,8 +900,8 @@
                                 },
                                 "nl": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "nl",
                                                 "name": "dutch-test"
@@ -911,8 +911,8 @@
                                 },
                                 "no": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "no",
                                                 "name": "norwegian"
@@ -922,8 +922,8 @@
                                 },
                                 "pap": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "pap",
                                                 "name": "papiamento-test"
@@ -933,8 +933,8 @@
                                 },
                                 "pl": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "pl",
                                                 "name": "polish"
@@ -944,8 +944,8 @@
                                 },
                                 "pt-BR": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "pt",
                                                 "name": "brazil"
@@ -955,8 +955,8 @@
                                 },
                                 "pt-PT": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "pt",
                                                 "name": "portugal"
@@ -966,8 +966,8 @@
                                 },
                                 "ro": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ro",
                                                 "name": "romanian"
@@ -977,8 +977,8 @@
                                 },
                                 "ru": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ru",
                                                 "name": "russian_test"
@@ -988,8 +988,8 @@
                                 },
                                 "sk": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "sk",
                                                 "name": "slovak"
@@ -999,8 +999,8 @@
                                 },
                                 "sq": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "sq",
                                                 "name": "albanian"
@@ -1010,8 +1010,8 @@
                                 },
                                 "sr": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "sr",
                                                 "name": "serbian"
@@ -1021,8 +1021,8 @@
                                 },
                                 "sv": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "sv",
                                                 "name": "swedish"
@@ -1032,8 +1032,8 @@
                                 },
                                 "sw": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                              "value": {
                                                  "locale": "sw",
                                                  "name": "swahili-test"
@@ -1043,8 +1043,8 @@
                                 },
                                 "ta": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "ta",
                                                 "name": "tamil"
@@ -1054,8 +1054,8 @@
                                 },
                                 "tr": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "tr",
                                                 "name": "turkish"
@@ -1065,8 +1065,8 @@
                                 },
                                 "vi": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "vi",
                                                 "name": "vietnam"
@@ -1076,8 +1076,8 @@
                                 },
                                 "zh-cmn": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "zh",
                                                 "name": "Mandarin"
@@ -1087,8 +1087,8 @@
                                 },
                                 "cmn": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "zh",
                                                 "name": "Mandarin"
@@ -1098,8 +1098,8 @@
                                 },
                                 "zh-yue": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "zh",
                                                 "name": "cantonese"
@@ -1109,8 +1109,8 @@
                                 },
                                 "yue": {
                                     "outputValue": {
-                                        "expander" : {
-                                            "type": "fluid.model.transform.literalValue",
+                                        "transform" : {
+                                            "type": "fluid.transforms.literalValue",
                                             "value": {
                                                 "locale": "zh",
                                                 "name": "cantonese"
@@ -1122,8 +1122,8 @@
                         }
                     },
                     "verbalizePunctuationStyle": {
-                        "expander": {
-                            "type": "fluid.model.transform.valueMapper",
+                        "transform": {
+                            "type": "fluid.transforms.valueMapper",
                             "inputPath": "display.screenReader.-provisional-punctuationVerbosity",
                             "defaultInputValue": "most",
                             "options": {
