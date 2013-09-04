@@ -191,9 +191,6 @@ gpii.integrationTesting.buildTestFixtures = function (testDefs) {
             }, {
                 func: "gpii.integrationTesting.checkRestoredConfiguration",
                 args: [ testDefRef, "{tests}.settingsStore"]
-            }, {
-                func: "gpii.integrationTesting.stopServer",
-                args: [ "{tests}" ]
             });
 
         testFixtures.push(testFixture);
@@ -264,9 +261,4 @@ gpii.integrationTesting.checkRestoredConfiguration = function (testDef, settings
         testDef.settingsHandlers);
     jqUnit.assertDeepEq("Checking that settings are properly reset",
         settingsStore.orig, currentSettings);
-};
-
-gpii.integrationTesting.stopServer = function (tests) {
-    var instantiator = fluid.getInstantiator(tests);
-    instantiator.clearComponent(tests, "server");
 };
