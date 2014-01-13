@@ -97,6 +97,7 @@
                 }
             ]
         },
+        "dynamic": true,
         "settingsHandlers": [
             {
                 "type": "gpii.gsettings.set",
@@ -199,7 +200,7 @@
                 "version": ">=2.6.26"
             }]
         },
-
+        "dynamic": true,
         "settingsHandlers": [
             {
                 "type": "gpii.gsettings.set",
@@ -266,6 +267,7 @@
                 "version": ">=2.6.26"
             }]
         },
+        "dynamic": true,
         "settingsHandlers": [ {
                 "type": "gpii.gsettings.set",
                 "capabilities": [
@@ -334,7 +336,7 @@
                 "version": ">=2.6.26"
             }]
         },
-
+        "dynamic": true,
         "settingsHandlers": [
             {
                 "type": "gpii.gsettings.set",
@@ -363,7 +365,7 @@
                 "version": ">=2.6.26"
             }]
         },
-
+        "dynamic": true,
         "settingsHandlers": [
             {
                 "type": "gpii.gsettings.set",

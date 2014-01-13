@@ -1,0 +1,10 @@
+{
+    "typeName": "session.development",
+    "options": {
+        "gradeNames": ["autoInit", "fluid.littleComponent"]
+    },
+    "includes": [
+        "../node_modules/flowManager/configs/io.json",
+        "./fm.ps.sr.dr.mm.os.lms.development.json"
+    ]
+}
